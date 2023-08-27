@@ -1,0 +1,6 @@
+name: WOKTutorial
+version: '${project.version}'
+main: woktutorial.woktutorial.WOKTutorial
+api-version: 1.20
+authors: [ vanessa ]
+description: wok tutorial intro to mc plugin development
