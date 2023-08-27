@@ -25,18 +25,26 @@ public class TorchHandler implements Listener
      * high
      * highest
      * -----
-     * monitor
+     * monitor - happens after everything else and u cannot change anything at that point
      */
 
     // change torch into diamond block
     @EventHandler(priority = EventPriority.LOW)
     public void onTorchPlace_Low(BlockPlaceEvent event)
     {
-        
+        /* same as Block block, we just didnt make it here
+        if we place a torch it'll place a diamond block instead
+        */
+        if(event.getBlock().getType() == Material.TORCH)
+        {
+            event.getBlock().setType(Material.DIAMOND_BLOCK);
+
+        }
     }
 
-
-    // we can name whatever we want on the class, but the parameter must be very specific
+    /* this never runs with the above (), bc the torch isnt a torch anymore, its a diamond block now.
+       example of priority.
+       we can name whatever we want on the class, but the parameter must be very specific */
     @EventHandler
     public void onTorchPlace_Normal(BlockPlaceEvent event)
     {
