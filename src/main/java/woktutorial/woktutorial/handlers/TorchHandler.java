@@ -23,7 +23,7 @@ public class TorchHandler implements Listener
      * low
      * normal - default, if none is specified
      * high
-     * highest
+     * highest - happens last, is the final say
      * -----
      * monitor - happens after everything else and u cannot change anything at that point
      */
@@ -37,7 +37,10 @@ public class TorchHandler implements Listener
         */
         if(event.getBlock().getType() == Material.TORCH)
         {
-            event.getBlock().setType(Material.DIAMOND_BLOCK);
+            // canceling events
+            event.setCancelled(true);
+//            event.getBlock().setType(Material.DIAMOND_BLOCK);
+//            Bukkit.getLogger().info("A Diamond Block was placed instead of a Torch");
 
         }
     }
@@ -45,19 +48,19 @@ public class TorchHandler implements Listener
     /* this never runs with the above (), bc the torch isnt a torch anymore, its a diamond block now.
        example of priority.
        we can name whatever we want on the class, but the parameter must be very specific */
-    @EventHandler
+    @EventHandler(ignoreCancelled = true)
     public void onTorchPlace_Normal(BlockPlaceEvent event)
     {
         // this () will run every time a block is placed
-        Block block = event.getBlock();
-
-        // if the type of block isnt a torch. Matieral contains all mc items
-        if(block.getType() != Material.TORCH)
-        {
-            return;
-        }
+//        Block block = event.getBlock();
+//
+//        // if the type of block isnt a torch. Matieral contains all mc items
+//        if(block.getType() != Material.TORCH)
+//        {
+//            return;
+//        }
 
         // displays text when torch is placed
-        Bukkit.getLogger().info("A torch was placed");
+        Bukkit.getLogger().info("A block was placed");
     }
 }
