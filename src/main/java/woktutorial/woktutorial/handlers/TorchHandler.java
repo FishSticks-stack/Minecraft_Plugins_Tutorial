@@ -29,28 +29,43 @@ public class TorchHandler implements Listener
      */
 
     // change torch into diamond block
-    @EventHandler(priority = EventPriority.LOW)
-    public void onTorchPlace_Low(BlockPlaceEvent event)
-    {
-        /* same as Block block, we just didnt make it here
-        if we place a torch it'll place a diamond block instead
-        */
-        if(event.getBlock().getType() == Material.TORCH)
-        {
-            // canceling events
-            event.setCancelled(true);
-//            event.getBlock().setType(Material.DIAMOND_BLOCK);
-//            Bukkit.getLogger().info("A Diamond Block was placed instead of a Torch");
-
-        }
-    }
+//    @EventHandler(priority = EventPriority.LOW)
+//    public void onTorchPlace_Low(BlockPlaceEvent event)
+//    {
+//        /* same as Block block, we just didnt make it here
+//        if we place a torch it'll place a diamond block instead
+//        */
+//        if(event.getBlock().getType() == Material.TORCH)
+//        {
+//            // canceling events
+//            event.setCancelled(true);
+////            event.getBlock().setType(Material.DIAMOND_BLOCK);
+////            Bukkit.getLogger().info("A Diamond Block was placed instead of a Torch");
+//
+//        }
+//    }
 
     /* this never runs with the above (), bc the torch isnt a torch anymore, its a diamond block now.
        example of priority.
        we can name whatever we want on the class, but the parameter must be very specific */
-    @EventHandler(ignoreCancelled = true)
+    @EventHandler
     public void onTorchPlace_Normal(BlockPlaceEvent event)
     {
+        if(event.getBlock().getType() != Material.TORCH)
+        {
+            return;
+        }
+
+        // permission node - is a string and can be whatever u want (torch.diamond)
+        // usually start with the name of the plugin (woktutorial)
+        // woktutorial.torch.diamond
+
+        // if player doesnt have this permission
+        if(!event.getPlayer().hasPermission("woktutorial.torch.diamond"))
+        {
+            return;
+        }
+        event.getBlock().setType(Material.DIAMOND_BLOCK);
         // this () will run every time a block is placed
 //        Block block = event.getBlock();
 //
@@ -61,6 +76,6 @@ public class TorchHandler implements Listener
 //        }
 
         // displays text when torch is placed
-        Bukkit.getLogger().info("A block was placed");
+        //Bukkit.getLogger().info("A block was placed");
     }
 }
