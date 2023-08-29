@@ -6,7 +6,7 @@ authors: [ vanessa ]
 description: wok tutorial intro to mc plugin development
 commands:
   fly:
-    description: toggles flying for the command sender, the player.
+    description: Toggles flying for the command sender, the player.
     usage: /fly
     aliases: f
     permission: fly

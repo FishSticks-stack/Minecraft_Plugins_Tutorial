@@ -14,6 +14,7 @@ public class Fly implements CommandExecutor
         // only players can run this command, not the terminal/console
         if (!(sender instanceof Player))
         {
+            // if u try to run it from terminal
             sender.sendMessage("Only players can run this command.");
             return true;
         }
