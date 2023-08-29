@@ -15,11 +15,11 @@ public final class WOKTutorial extends JavaPlugin {
         // Plugin startup logic
         Bukkit.getLogger().info("Hello world");
 
-        // instance
-        new TorchHandler(this);
-
         // fly command
         getCommand("fly").setExecutor(new Fly());
+
+        // instance
+        new TorchHandler(this);
     }
 
     @Override
