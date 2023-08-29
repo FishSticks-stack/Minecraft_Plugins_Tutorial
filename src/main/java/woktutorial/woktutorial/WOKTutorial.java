@@ -5,6 +5,7 @@ and it'll put u in the server */
 
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
+import woktutorial.woktutorial.commands.Fly;
 import woktutorial.woktutorial.handlers.TorchHandler;
 
 public final class WOKTutorial extends JavaPlugin {
@@ -16,6 +17,9 @@ public final class WOKTutorial extends JavaPlugin {
 
         // instance
         new TorchHandler(this);
+
+        // fly command
+        getCommand("fly").setExecutor(new Fly());
     }
 
     @Override
