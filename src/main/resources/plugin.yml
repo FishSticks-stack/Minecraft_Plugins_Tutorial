@@ -10,4 +10,4 @@ commands:
     usage: /fly
     aliases: f
     permission: fly
-    permission-message: you do not have permission!
+    permission-message: "you do not have permission!"
