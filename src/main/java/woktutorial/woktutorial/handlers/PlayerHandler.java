@@ -8,6 +8,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import woktutorial.woktutorial.WOKTutorial;
 
 public class PlayerHandler implements Listener
@@ -29,7 +30,10 @@ public class PlayerHandler implements Listener
         Inventory inv = player.getInventory();
 
         // item meta
-
+        ItemMeta meta = item.getItemMeta();
+        // changing the name of the item
+        meta.setDisplayName("Testing");
+        item.setItemMeta(meta);
 
         // add the item to the NEXT empty spot
         inv.addItem(item);
