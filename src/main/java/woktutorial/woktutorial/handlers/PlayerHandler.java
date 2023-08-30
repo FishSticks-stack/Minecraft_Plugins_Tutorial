@@ -31,8 +31,9 @@ public class PlayerHandler implements Listener
 
         // item meta
         ItemMeta meta = item.getItemMeta();
-        // changing the name of the item
+        // rename an item
         meta.setDisplayName("Testing");
+        // if u dont add this then none of the meta changes made will be applied to the item
         item.setItemMeta(meta);
 
         // add the item to the NEXT empty spot
